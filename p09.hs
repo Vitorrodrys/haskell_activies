@@ -1,6 +1,8 @@
 myConcat :: Eq a => a -> [[a]] -> [[a]]
 myConcat b [] = [[b]]
-myConcat b (x:xs) = if b == head x then (b:x):xs else [b]:x:xs
+myConcat b (x:xs)
+    | b == head x = (b:x):xs
+    | otherwise = [b]:x:xs
 
 pack :: [Integer] -> [[Integer]]
 pack [] = []
