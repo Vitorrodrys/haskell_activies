@@ -1,3 +1,4 @@
+module P10 (pack) where
 -- verifica se um item está presente em uma lista
 contains item [] = False
 contains item list = if (head list) == item then True else contains (item) (tail list)
