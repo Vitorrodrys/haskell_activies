@@ -1,10 +1,10 @@
 import P10 (pack)
 
-
-helper_remove_single_elements :: [(a, Integer)] -> [(a, Integer)]
+data CompressedElement = Single Char | Tuple Char Integer deriving (Show)
+helper_remove_single_elements :: [(Char, Integer)] -> [CompressedElement]
 helper_remove_single_elements [] = []
 helper_remove_single_elements ((element, quantity):elements) = 
-    if quantity == 1 then helper_remove_single_elements elements else (element, quantity):(helper_remove_single_elements elements)
+    if quantity == 1 then (Single element):helper_remove_single_elements elements else (Tuple element quantity):(helper_remove_single_elements elements)
 
 remove_single_elements list_elements = helper_remove_single_elements (pack list_elements)
 
