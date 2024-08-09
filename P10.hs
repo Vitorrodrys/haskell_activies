@@ -23,7 +23,7 @@ pack_helper list search_item result =
     -- de resultado o item anterior que se buscava, contudo o novo item de busca agora é trocado
     else
         pack_helper (tail list) (head list) (result ++ [((head list), 1)])
-
+pack :: String -> [(Char, Integer)]
 pack list = pack_helper list (head list) []
 
 main = print(pack "aaaabbaafffvvv")
