@@ -1,4 +1,8 @@
-data Tree a = Empty | Branch a (Tree a) (Tree a) deriving (Show, Eq)
+module P54 (
+    Tree(Empty, Branch),
+    is_binary
+) where
+data Tree a = Empty | Branch a (Tree a) (Tree a) deriving (Show)
 
 is_binary :: (Ord a) => Tree a -> Bool
 
